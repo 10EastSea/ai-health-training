@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <title>Document</title>
     <style>
         body { font-family: 'Roboto Mono', monospace; }
@@ -15,9 +21,9 @@
     <button type="button" onclick="init()">Start</button>
     <div><canvas id="canvas"></canvas></div>
     <div id="label-container">
-        <div>stand:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<progress id="stand" max="1">50%</progress></div>
-        <div>lunge:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<progress id="lunge" max="1">50%</progress></div>
-        <div>not lunge:&nbsp;<progress id="notLunge" max="1">50%</progress></div>
+        <div class="progress">stand:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="progress-bar progress-bar-danger" id="stand" ></div></div>
+        <div class="progress">lunge:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="progress-bar progress-bar-info" id="lunge" ></div></div>
+        <div class="progress">not lunge:&nbsp;<div class="progress-bar progress-bar-success" id="notLunge" ></div></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -69,14 +75,15 @@
 
         for (let i = 0; i < maxPredictions; i++) {
             var percent = prediction[i].probability.toFixed(2) * 100;
+            var str_percent = String(percent) + "%";
             if(i === 0) {
-                document.getElementById('stand').setAttribute('value', prediction[i].probability.toFixed(2));
+                $('#stand').css('width', str_percent);
                 document.getElementById('stand').innerHTML = String(percent) + "%";
             } else if(i === 1) {
-                document.getElementById('lunge').setAttribute('value', prediction[i].probability.toFixed(2));
+                $('#lunge').css('width', str_percent);
                 document.getElementById('lunge').innerHTML = String(percent) + "%";
             } else if(i === 2) {
-                document.getElementById('notLunge').setAttribute('value', prediction[i].probability.toFixed(2));
+                $('#notLunge').css('width', str_percent);
                 document.getElementById('notLunge').innerHTML = String(percent) + "%";
             }
         }
