@@ -27,15 +27,15 @@
         <table>
             <tr>
                 <td><div class="progress_box">stand</div></td>
-                <td></td>
+                <td><div class="progress"><div class="progress-bar progress-bar-danger" id="stand"></div></div></td>
             </tr>
             <tr>
                 <td><div class="progress_box">lunge</div></td>
-                <td></td>
+                <td><div class="progress"><div class="progress-bar progress-bar-info" id="lunge"></div></div></td>
             </tr>
             <tr>
                 <td><div class="progress_box">not lunge</div></td>
-                <td></td>
+                <td><div class="progress"><div class="progress-bar progress-bar-success" id="notLunge" ></div></div></td>
             </tr>
         </table>
         <div class="progress"><div class="progress-bar progress-bar-danger" id="stand"></div></div>
@@ -95,10 +95,13 @@
             var str_percent = String(percent) + "%";
             if(i === 0) {
                 $('#stand').css('width', str_percent);
+                document.getElementById('stand').innerHTML = String(percent) + "%";
             } else if(i === 1) {
                 $('#lunge').css('width', str_percent);
+                document.getElementById('lunge').innerHTML = String(percent) + "%";
             } else if(i === 2) {
                 $('#notLunge').css('width', str_percent);
+                document.getElementById('notLunge').innerHTML = String(percent) + "%";
             }
         }
 
