@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
-        .tab { white-space: pre; }
         body { font-family: 'Roboto Mono', monospace; }
     </style>
 </head>
@@ -69,9 +68,17 @@
         const prediction = await model.predict(posenetOutput);
 
         for (let i = 0; i < maxPredictions; i++) {
-            if(i === 0) document.getElementById('stand').setAttribute('value', prediction[i].probability.toFixed(2));
-            else if(i === 1) document.getElementById('lunge').setAttribute('value', prediction[i].probability.toFixed(2));
-            else if(i === 2) document.getElementById('notLunge').setAttribute('value', prediction[i].probability.toFixed(2));
+            var percent = prediction[i].probability.toFixed(2) * 100;
+            if(i === 0) {
+                document.getElementById('stand').setAttribute('value', prediction[i].probability.toFixed(2));
+                document.getElementById('stand').innerHTML = String(percent) + "%";
+            } else if(i === 1) {
+                document.getElementById('lunge').setAttribute('value', prediction[i].probability.toFixed(2));
+                document.getElementById('lunge').innerHTML = String(percent) + "%";
+            } else if(i === 2) {
+                document.getElementById('notLunge').setAttribute('value', prediction[i].probability.toFixed(2));
+                document.getElementById('notLunge').innerHTML = String(percent) + "%";
+            }
         }
 
         // finally draw the poses
