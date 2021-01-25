@@ -109,6 +109,8 @@
 
         var can, spanProcent, c;
         var posX, posY, fps, procent, oneProcent, result;
+        var count = 0;
+        var check_state = "stand";
 
         async function init() {
             const modelURL = URL + "model.json";
@@ -142,7 +144,7 @@
             fps = 1000 / 200;
             procent = 0;
             oneProcent = 360 / 30;
-            result = oneProcent * 15;
+            result = oneProcent * count;
 
             c.lineCap = 'round';
             arcMove();
@@ -185,6 +187,23 @@
             // Prediction 2: run input through teachable machine classification model
             const prediction = await model.predict(posenetOutput);
 
+
+
+            if (prediction[0].probability.toFixed(2) > 0.95) {
+                if (check_state == "squat") {
+                    count++;
+                    result = oneProcent * count;
+                    arcMove();
+                }
+                check_state = "stand"
+            } else if (prediction[1].probability.toFixed(2) > 0.95) {
+                status = "squat"
+            } else if (prediction[2].probability.toFixed(2) > 0.95) {
+                status = "bent"
+            }
+
+
+
             for (let i = 0; i < maxPredictions; i++) {
                 var percent = prediction[i].probability.toFixed(2) * 100;
                 var str_percent = String(percent) + "%";
@@ -194,6 +213,7 @@
                 } else if (i === 1) {
                     $('#lunge').css('width', str_percent);
                     document.getElementById('lunge').innerHTML = String(percent) + "%";
+
                 } else if (i === 2) {
                     $('#notLunge').css('width', str_percent);
                     document.getElementById('notLunge').innerHTML = String(percent) + "%";
