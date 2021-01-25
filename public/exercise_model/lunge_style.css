@@ -9,11 +9,11 @@ span#procent {
 }
 
 span#procent::after {
-	content: '%';
+	content: '개';
 }
 
 .canvas-wrap {
 	position: relative;
-	width: 300px;
-	height: 300px;
+	display: flex;
+    justify-content: center;
 }
