@@ -107,6 +107,9 @@
         const URL = "./lunge_model/";
         let model, webcam, ctx, labelContainer, maxPredictions;
 
+        var can, spanProcent, c;
+        var posX, posY, fps, procent, oneProcent, result;
+
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -129,6 +132,44 @@
             const canvas = document.getElementById("canvas");
             canvas.width = size; canvas.height = size;
             ctx = canvas.getContext("2d");
+
+            can = document.getElementById('circle_count');
+            spanProcent = document.getElementById('procent');
+            c = can.getContext('2d');
+
+            posX = can.width / 2;
+            posY = can.height / 2;
+            fps = 1000 / 200;
+            procent = 0;
+            oneProcent = 360 / 30;
+            result = oneProcent * 15;
+
+            c.lineCap = 'round';
+            arcMove();
+        }
+
+        function arcMove() {
+            var deegres = 0;
+            var acrInterval = setInterval(function () {
+                deegres += 1;
+                c.clearRect(0, 0, can.width, can.height);
+                procent = deegres / oneProcent;
+
+                spanProcent.innerHTML = procent.toFixed();
+
+                c.beginPath();
+                c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
+                c.strokeStyle = '#b1b1b1';
+                c.lineWidth = '10';
+                c.stroke();
+
+                c.beginPath();
+                c.strokeStyle = '#3949AB';
+                c.lineWidth = '10';
+                c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + deegres));
+                c.stroke();
+                if (deegres >= result) clearInterval(acrInterval);
+            }, fps);
         }
 
         async function loop(timestamp) {
@@ -178,67 +219,7 @@
 
     <script>
         window.onload = function () {
-            const modelURL = URL + "model.json";
-            const metadataURL = URL + "metadata.json";
 
-            // load the model and metadata
-            // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-            // Note: the pose library adds a tmPose object to your window (window.tmPose)
-            model = tmPose.load(modelURL, metadataURL);
-            maxPredictions = model.getTotalClasses();
-
-            // Convenience function to setup a webcam
-            const size = 500;
-            const flip = true; // whether to flip the webcam
-            webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
-            webcam.setup(); // request access to the webcam
-            webcam.play();
-            window.requestAnimationFrame(loop);
-
-            // append/get elements to the DOM
-            const canvas = document.getElementById("canvas");
-            canvas.width = size; canvas.height = size;
-            ctx = canvas.getContext("2d");
-
-
-            var can = document.getElementById('circle_count'),
-                spanProcent = document.getElementById('procent'),
-                c = can.getContext('2d');
-
-            var posX = can.width / 2,
-                posY = can.height / 2,
-                fps = 1000 / 200,
-                procent = 0,
-                oneProcent = 360 / 30,
-                result = oneProcent * 15;
-
-            c.lineCap = 'round';
-            arcMove();
-
-            function arcMove() {
-                var deegres = 0;
-                var acrInterval = setInterval(function () {
-                    deegres += 1;
-                    c.clearRect(0, 0, can.width, can.height);
-                    procent = deegres / oneProcent;
-
-                    spanProcent.innerHTML = procent.toFixed();
-
-                    c.beginPath();
-                    c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
-                    c.strokeStyle = '#b1b1b1';
-                    c.lineWidth = '10';
-                    c.stroke();
-
-                    c.beginPath();
-                    c.strokeStyle = '#3949AB';
-                    c.lineWidth = '10';
-                    c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + deegres));
-                    c.stroke();
-                    if (deegres >= result) clearInterval(acrInterval);
-                }, fps);
-
-            }
 
 
         }
