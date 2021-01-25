@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="lunge_style.css">
 
@@ -26,41 +25,47 @@
 </head>
 <body>
 
-    <div class="container mt-5">
-        <div class="frame">
-            <div class="center">
-                <div class="headline">
-                    <div class="small">Squat</div>Counter
-                </div>
-                <div class="circle-big">
-                    <div class="text">
-                        <span id="counter">0</span><div class="small">개</div>
-                    </div>
-                    <svg>
-                        <circle class="bg" cx="57" cy="57" r="52" />
-                        <circle class="progress" cx="57" cy="57" r="52" />
-                    </svg>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>AI Health Trainer - Lunge</h1>
+                <button type="button" class="btn btn-primary" onclick="init()">Start</button>
+                <div><canvas id="canvas"></canvas></div>
+                <div id="label-container">
+                    <table>
+                        <tr>
+                            <td class="progress_name"><div>stand</div></td>
+                            <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-danger" id="stand"></div></div></td>
+                        </tr>
+                        <tr>
+                            <td class="progress_name"><div>lunge</div></td>
+                            <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-info" id="lunge"></div></div></td>
+                        </tr>
+                        <tr>
+                            <td class="progress_name"><div>not lunge</div></td>
+                            <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-success" id="notLunge" ></div></div></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-        </div>
-        <h1>AI Health Trainer - Lunge</h1>
-        <button type="button" class="btn btn-info" onclick="init()">Start</button>
-        <div><canvas id="canvas"></canvas></div>
-        <div id="label-container">
-            <table>
-                <tr>
-                    <td class="progress_name"><div>stand</div></td>
-                    <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-danger" id="stand"></div></div></td>
-                </tr>
-                <tr>
-                    <td class="progress_name"><div>lunge</div></td>
-                    <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-info" id="lunge"></div></div></td>
-                </tr>
-                <tr>
-                    <td class="progress_name"><div>not lunge</div></td>
-                    <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-success" id="notLunge" ></div></div></td>
-                </tr>
-            </table>
+            <div class="col-md-6">
+                <div class="frame">
+                    <div class="center">
+                        <div class="headline">
+                            <div class="small">Squat</div>Counter
+                        </div>
+                        <div class="circle-big">
+                            <div class="text">
+                                <span id="counter">0</span><div class="small">개</div>
+                            </div>
+                            <svg>
+                                <circle class="bg" cx="57" cy="57" r="52" />
+                                <circle class="progress" cx="57" cy="57" r="52" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
