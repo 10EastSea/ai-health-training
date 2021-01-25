@@ -6,13 +6,13 @@
 	 height: 400px;
 	 margin-left: -200px;
 	 border-radius: 2px;
-	 box-shadow: 1px 2px 10px 0px rgba(#b0e0e6);
+	 box-shadow: 1px 2px 10px 0px rgba(darkblue);
 	 overflow: hidden;
-	 background: powderblue;
-	 background: -moz-linear-gradient(top, powderblue 0%, aliceblue 100%);
-	 background: -webkit-linear-gradient(top, powderblue 0%, aliceblue 100%);
-	 background: linear-gradient(to bottom, powderblue 0%, aliceblue 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b0e0e6', endColorstr='#f0f8ff',GradientType=0);
+	 background: darkblue;
+	 background: -moz-linear-gradient(top, darkblue 0%, powderblue 100%);
+	 background: -webkit-linear-gradient(top,darkblue 0%, powderblue 100%);
+	 background: linear-gradient(to bottom,darkblue 0%, powderblue 100%);
+	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0000A0', endColorstr='#b0e0e6',GradientType=0);
 	 color: #fff;
 	 font-family: 'Open Sans', Helvetica, sans-serif !important;
 	 -webkit-font-smoothing: antialiased !important;
@@ -53,7 +53,7 @@
  .circle-big .progress {
 	 fill: none;
 	 stroke-width: 10px;
-	 stroke: #27e1ae;
+	 stroke: #8cbed6;
 	 stroke-linecap: round;
 	 stroke-dasharray: 326.56;
 	 stroke-dashoffset: 327;
