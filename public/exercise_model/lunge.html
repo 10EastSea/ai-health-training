@@ -86,9 +86,22 @@
                 </div>
             </div>
             <div class="col-md-5" style="margin-top:200px;">
-                <div class="canvas-wrap">
-                    <canvas id="circle_count" width="300" height="300"></canvas>
-                    <span id="procent"></span>
+                <div class="frame">
+                    <div class="center">
+                        <div class="headline">
+                            <div class="small">Squat</div>Counter
+                        </div>
+                        <div class="circle-big">
+                            <div class="text">
+                                <span id="counter">0</span>
+                                <div class="small">개</div>
+                            </div>
+                            <svg>
+                                <circle class="bg" cx="57" cy="57" r="52" />
+                                <circle class="progress" cx="57" cy="57" r="52" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-1"></div>
@@ -106,12 +119,6 @@
         // the link to your model provided by Teachable Machine export panel
         const URL = "./lunge_model/";
         let model, webcam, ctx, labelContainer, maxPredictions;
-
-        var can, spanProcent, c;
-        var posX, posY, fps, procent, oneProcent, result;
-        var deegres, acrInterval;
-        var count = 0;
-        var check_state = "stand";
 
         async function init() {
             const modelURL = URL + "model.json";
@@ -135,44 +142,6 @@
             const canvas = document.getElementById("canvas");
             canvas.width = size; canvas.height = size;
             ctx = canvas.getContext("2d");
-
-            can = document.getElementById('circle_count');
-            spanProcent = document.getElementById('procent');
-            c = can.getContext('2d');
-
-            posX = can.width / 2;
-            posY = can.height / 2;
-            fps = 1000 / 200;
-            procent = 0;
-            oneProcent = 360 / 30;
-            result = oneProcent * count;
-
-            c.lineCap = 'round';
-            arcMove();
-        }
-
-        function arcMove() {
-            deegres = 0;
-            acrInterval = setInterval(function () {
-                deegres += 1;
-                c.clearRect(0, 0, can.width, can.height);
-                procent = deegres / oneProcent;
-
-                spanProcent.innerHTML = procent.toFixed();
-
-                c.beginPath();
-                c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + 360));
-                c.strokeStyle = '#b1b1b1';
-                c.lineWidth = '10';
-                c.stroke();
-
-                c.beginPath();
-                c.strokeStyle = '#3949AB';
-                c.lineWidth = '10';
-                c.arc(posX, posY, 70, (Math.PI / 180) * 270, (Math.PI / 180) * (270 + deegres));
-                c.stroke();
-                if (deegres >= result) clearInterval(acrInterval);
-            }, fps);
         }
 
         async function loop(timestamp) {
@@ -180,6 +149,16 @@
             await predict();
             window.requestAnimationFrame(loop);
         }
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var progress = 327
+        var status = "stand"
+        var count = 0
+        ///////////////////////////////////////////////////////////////////////////////////////
+
+
 
         async function predict() {
             // Prediction #1: run input through posenet
@@ -190,17 +169,21 @@
 
 
 
-            if (prediction[0].probability.toFixed(2) == 1.00) {
-                if (check_state == "lunge") {
-                    count++;
-                    result = oneProcent * count;
-                    arcMove();
+            if (prediction[0].probability.toFixed(2) > 0.95) {
+                if (status == "lunge") {
+                    count++
+                    progress = progress - 32.7
+                    if (progress <= 0) {
+                        progress = 327 - 32.7
+                    }
+                    $('.progress').css('stroke-dashoffset', progress);
+                    $('#counter').html(count);
                 }
-                check_state = "stand"
+                status = "stand"
             } else if (prediction[1].probability.toFixed(2) == 1.00) {
-                check_state = "lunge"
+                status = "lunge"
             } else if (prediction[2].probability.toFixed(2) == 1.00) {
-                check_state = "notLunge"
+                status = "notLunge"
             }
 
 
