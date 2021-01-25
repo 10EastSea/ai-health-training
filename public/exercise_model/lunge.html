@@ -14,8 +14,11 @@
     <title>Document</title>
     <style>
         body { font-family: 'Roboto Mono', monospace; }
-        td {
-            width: 250px;
+        .progress_name {
+            width: 150px;
+        }
+        .progress_gage {
+            width: 350px;
         }
     </style>
 </head>
@@ -26,16 +29,16 @@
     <div id="label-container">
         <table>
             <tr>
-                <td><div class="progress_box">stand</div></td>
-                <td><div class="progress"><div class="progress-bar progress-bar-danger" id="stand"></div></div></td>
+                <td class="progress_name"><div>stand</div></td>
+                <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-danger" id="stand"></div></div></td>
             </tr>
             <tr>
-                <td><div class="progress_box">lunge</div></td>
-                <td><div class="progress"><div class="progress-bar progress-bar-info" id="lunge"></div></div></td>
+                <td class="progress_name"><div>lunge</div></td>
+                <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-info" id="lunge"></div></div></td>
             </tr>
             <tr>
-                <td><div class="progress_box">not lunge</div></td>
-                <td><div class="progress"><div class="progress-bar progress-bar-success" id="notLunge" ></div></div></td>
+                <td class="progress_name"><div>not lunge</div></td>
+                <td class="progress_gage"><div class="progress"><div class="progress-bar progress-bar-success" id="notLunge" ></div></div></td>
             </tr>
         </table>
     </div>
