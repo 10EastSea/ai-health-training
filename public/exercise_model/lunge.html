@@ -109,6 +109,7 @@
 
         var can, spanProcent, c;
         var posX, posY, fps, procent, oneProcent, result;
+        var deegres, acrInterval;
         var count = 0;
         var check_state = "stand";
 
@@ -151,8 +152,8 @@
         }
 
         function arcMove() {
-            var deegres = 0;
-            var acrInterval = setInterval(function () {
+            deegres = 0;
+            acrInterval = setInterval(function () {
                 deegres += 1;
                 c.clearRect(0, 0, can.width, can.height);
                 procent = deegres / oneProcent;
@@ -189,16 +190,16 @@
 
 
 
-            if (prediction[0].probability.toFixed(2) > 0.95) {
+            if (prediction[0].probability.toFixed(2) == 1.00) {
                 if (check_state == "lunge") {
                     count++;
                     result = oneProcent * count;
                     arcMove();
                 }
                 check_state = "stand"
-            } else if (prediction[1].probability.toFixed(2) > 0.95) {
+            } else if (prediction[1].probability.toFixed(2) == 1.00) {
                 check_state = "lunge"
-            } else if (prediction[2].probability.toFixed(2) > 0.95) {
+            } else if (prediction[2].probability.toFixed(2) == 1.00) {
                 check_state = "notLunge"
             }
 
