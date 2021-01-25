@@ -1,20 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300);
  .frame {
-	 position: absolute;
-	 top: 50%;
-	 left: 70%;
+	 position: relative;
+	 left: 50%;
 	 width: 400px;
 	 height: 400px;
-	 margin-top: -200px;
 	 margin-left: -200px;
 	 border-radius: 2px;
-	 box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+	 box-shadow: 1px 2px 10px 0px rgba(#b0e0e6);
 	 overflow: hidden;
-	 background: #28404e;
-	 background: -moz-linear-gradient(top, #28404e 0%, #1c2e38 100%);
-	 background: -webkit-linear-gradient(top, #28404e 0%, #1c2e38 100%);
-	 background: linear-gradient(to bottom, #28404e 0%, #1c2e38 100%);
-	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#28404e', endColorstr='#1c2e38',GradientType=0);
+	 background: powderblue;
+	 background: -moz-linear-gradient(top, powderblue 0%, aliceblue 100%);
+	 background: -webkit-linear-gradient(top, powderblue 0%, aliceblue 100%);
+	 background: linear-gradient(to bottom, powderblue 0%, aliceblue 100%);
+	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b0e0e6', endColorstr='#f0f8ff',GradientType=0);
 	 color: #fff;
 	 font-family: 'Open Sans', Helvetica, sans-serif !important;
 	 -webkit-font-smoothing: antialiased !important;
@@ -50,7 +48,7 @@
  .circle-big .bg {
 	 fill: none;
 	 stroke-width: 10px;
-	 stroke: #1b2a33;
+	 stroke: #f0f8ff;
 }
  .circle-big .progress {
 	 fill: none;
@@ -96,7 +94,7 @@
  .circle-small .bg {
 	 fill: none;
 	 stroke-width: 6px;
-	 stroke: #1b2a33;
+	 stroke: #f0f8ff;
 }
  .circle-small .progress {
 	 fill: none;
