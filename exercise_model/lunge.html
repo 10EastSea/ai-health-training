@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="bootstrap-theme.min.css">
     <script src="bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="lunge_style.css">
+    <link rel="stylesheet" href="style.css">
 
     <title>Document</title>
     <style>
@@ -42,7 +42,7 @@
 
 <body>
 
-    <div class="container" style="margin-top: 3em;">
+    <div class="container" style="margin-top: 5em;">
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-5" style="text-align: center;">
@@ -154,7 +154,7 @@
 
         ///////////////////////////////////////////////////////////////////////////////////////
         var progress = 327
-        var status = "stand"
+        var status = "null"
         var count = 0
         ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -197,7 +197,6 @@
                 } else if (i === 1) {
                     $('#lunge').css('width', str_percent);
                     document.getElementById('lunge').innerHTML = String(percent) + "%";
-
                 } else if (i === 2) {
                     $('#notLunge').css('width', str_percent);
                     document.getElementById('notLunge').innerHTML = String(percent) + "%";
