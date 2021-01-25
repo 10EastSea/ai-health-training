@@ -25,6 +25,11 @@
             font-size: 24px;
         }
 
+        .progress {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
         .progress_name {
             width: 150px;
         }
@@ -40,12 +45,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-5">
+            <div class="col-md-5" style="text-align: center;">
                 <h1>AI Health Trainer - Lunge</h1>
-                <button type="button" class="btn btn-primary" onclick="init()">Start</button>
+                <button type="button" class="btn btn-info" onclick="init()">Start</button>
                 <div><canvas id="canvas"></canvas></div>
                 <div id="label-container">
-                    <table>
+                    <table style="margin:auto;text-align:center">
                         <tr>
                             <td class="progress_name">
                                 <div>stand</div>

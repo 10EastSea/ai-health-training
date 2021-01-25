@@ -8,10 +8,6 @@ span#procent {
 	color: #3949AB;
 }
 
-span#procent::after {
-	content: '개';
-}
-
 .canvas-wrap {
 	position: relative;
 	display: flex;
