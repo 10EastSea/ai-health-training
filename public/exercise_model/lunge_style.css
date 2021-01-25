@@ -3,13 +3,13 @@ body {
 }
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300);
  .frame {
-	 position: absolute;
+	 /* position: absolute;
 	 top: 50%;
-	 left: 70%;
+	 left: 70%; */
 	 width: 400px;
 	 height: 400px;
-	 margin-top: -200px;
-	 margin-left: -200px;
+	 /* margin-top: -200px;
+	 margin-left: -200px; */
 	 border-radius: 2px;
 	 box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
 	 overflow: hidden;
@@ -23,12 +23,12 @@ body {
 	 -webkit-font-smoothing: antialiased !important;
 	 -moz-osx-font-smoothing: grayscale !important;
 }
- .center {
+ /* .center {
 	 position: absolute;
 	 top: 50%;
 	 left: 50%;
 	 transform: translate(-50%, -50%);
-}
+} */
  .headline {
 	 font-weight: 600;
 	 font-size: 24px;
