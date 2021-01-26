@@ -5,6 +5,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import '@atlaskit/css-reset';
 import Column from './column';
 
+
 const Container = styled.div`
   display:flex;
   flex-direction:column;
@@ -103,6 +104,8 @@ class App extends Component {
     };
     this.setState(newState);
   };
+
+
   render() {
     return (
       <DragDropContext

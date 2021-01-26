@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import Navigation from './components/Navigation';
 import App from './App';
+import {Button, goLink} from "./components/Button"
 
 ReactDOM.render(
   <React.StrictMode>
     <Navigation />
     <App />
+    <Button onClick = {goLink}
+    type="button"
+    buttonStyle="btn--primary--outline"
+    buttonSize="btn--large"
+    > LET'S GO!! </Button>
   </React.StrictMode>,
   document.getElementById('root')
 );
