@@ -3,34 +3,34 @@ const initialData = {
         'sit_up': {
             id: 'sit_up',
             name: 'sit_up',
-            thumb: './images/sit_up_icon.png'
+            thumb: '/images/sit_up_icon.png'
         },
         'push_up': {
-            id: 'push_up', 
+            id: 'push_up',
             name: 'push_up',
-            thumb: './images/push_up_icon.png'
+            thumb: '/images/push_up_icon.png'
         },
         'lunge': {
             id: 'lunge',
             name: 'lunge',
-            thumb: './images/lunge_icon.png'
+            thumb: '/images/lunge_icon.png'
         },
         'squat': {
             id: 'squat',
             name: 'squat',
-            thumb: './images/squat_icon.png'
+            thumb: '/images/squat_icon.png'
         },
 
         'leg_raise': {
             id: 'leg_raise',
             name: 'leg_raise',
-            thumb: './images/leg_raise_icon.png'
+            thumb: '/images/leg_raise_icon.png'
         },
 
         'shoulder_press': {
             id: 'shoulder_press',
             name: 'shoulder_press',
-            thumb: './images/shoulder_press_icon.png'
+            thumb: '/images/shoulder_press_icon.png'
         },
     },
 
@@ -51,7 +51,7 @@ const initialData = {
             title: "Finished Workout",
             exerciseIds: [],
         },
-        
+
     },
 
     // Facilitate reordering of the columns

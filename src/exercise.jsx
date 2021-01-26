@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Draggable} from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
 const Container = styled.div`
     border: 3px solid lightgrey;
@@ -37,28 +37,28 @@ export default class Exercise extends React.Component {
         function activateLasers() {
             "Hello World!";
         }
-        return(
-            <Draggable 
-                draggableId={this.props.exercise.id} 
+        return (
+            <Draggable
+                draggableId={this.props.exercise.id}
                 index={this.props.index}
-                isDragDisabled ={isDragDisabled}    
+                isDragDisabled={isDragDisabled}
             >
-                {(provided, snapshot)=> ( 
-                <Container 
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    ref={provided.innerRef}
-                    isDragging = {snapshot.isDragging}
-                    isDragDisabled = {isDragDisabled}
-                >
-                    <button onClick={activateLasers}>
-                        Activate Lasers
+                {(provided, snapshot) => (
+                    <Container
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        isDragging={snapshot.isDragging}
+                        isDragDisabled={isDragDisabled}
+                    >
+                        <button onClick={activateLasers}>
+                            Activate Lasers
                     </button>
-                    <img src={this.props.exercise.thumb} width="75%" height="75%" alt="" />
-                    <strong> {this.props.exercise.name} </strong>
-                </Container>
+                        <img src={this.props.exercise.thumb} width="75%" height="75%" alt="" />
+                        <strong> {this.props.exercise.name} </strong>
+                    </Container>
                 )}
             </Draggable>
-            );    
+        );
     }
 } 
