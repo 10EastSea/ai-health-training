@@ -1,26 +1,22 @@
 {
   "files": {
-    "main.css": "/ai-health-training/static/css/main.c17c92b2.chunk.css",
-    "main.js": "/ai-health-training/static/js/main.6ce19a2c.chunk.js",
-    "main.js.map": "/ai-health-training/static/js/main.6ce19a2c.chunk.js.map",
-    "runtime-main.js": "/ai-health-training/static/js/runtime-main.1ca601d7.js",
-    "runtime-main.js.map": "/ai-health-training/static/js/runtime-main.1ca601d7.js.map",
-    "static/css/2.150d169a.chunk.css": "/ai-health-training/static/css/2.150d169a.chunk.css",
-    "static/js/2.16058aed.chunk.js": "/ai-health-training/static/js/2.16058aed.chunk.js",
-    "static/js/2.16058aed.chunk.js.map": "/ai-health-training/static/js/2.16058aed.chunk.js.map",
-    "static/js/3.2f843a32.chunk.js": "/ai-health-training/static/js/3.2f843a32.chunk.js",
-    "static/js/3.2f843a32.chunk.js.map": "/ai-health-training/static/js/3.2f843a32.chunk.js.map",
+    "main.js": "/ai-health-training/static/js/main.096f8eb1.chunk.js",
+    "main.js.map": "/ai-health-training/static/js/main.096f8eb1.chunk.js.map",
+    "runtime-main.js": "/ai-health-training/static/js/runtime-main.517644c8.js",
+    "runtime-main.js.map": "/ai-health-training/static/js/runtime-main.517644c8.js.map",
+    "static/css/2.c8940395.chunk.css": "/ai-health-training/static/css/2.c8940395.chunk.css",
+    "static/js/2.10864939.chunk.js": "/ai-health-training/static/js/2.10864939.chunk.js",
+    "static/js/2.10864939.chunk.js.map": "/ai-health-training/static/js/2.10864939.chunk.js.map",
+    "static/js/3.6a55a73a.chunk.js": "/ai-health-training/static/js/3.6a55a73a.chunk.js",
+    "static/js/3.6a55a73a.chunk.js.map": "/ai-health-training/static/js/3.6a55a73a.chunk.js.map",
     "index.html": "/ai-health-training/index.html",
-    "static/css/2.150d169a.chunk.css.map": "/ai-health-training/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.c17c92b2.chunk.css.map": "/ai-health-training/static/css/main.c17c92b2.chunk.css.map",
-    "static/js/2.16058aed.chunk.js.LICENSE.txt": "/ai-health-training/static/js/2.16058aed.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/ai-health-training/static/media/logo.6ce24c58.svg"
+    "static/css/2.c8940395.chunk.css.map": "/ai-health-training/static/css/2.c8940395.chunk.css.map",
+    "static/js/2.10864939.chunk.js.LICENSE.txt": "/ai-health-training/static/js/2.10864939.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1ca601d7.js",
-    "static/css/2.150d169a.chunk.css",
-    "static/js/2.16058aed.chunk.js",
-    "static/css/main.c17c92b2.chunk.css",
-    "static/js/main.6ce19a2c.chunk.js"
+    "static/js/runtime-main.517644c8.js",
+    "static/css/2.c8940395.chunk.css",
+    "static/js/2.10864939.chunk.js",
+    "static/js/main.096f8eb1.chunk.js"
   ]
 }
