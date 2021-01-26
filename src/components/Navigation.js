@@ -6,9 +6,9 @@ function Navigation() {
     return (
         <div className="Navigation">
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">AI Health Trainer</Navbar.Brand>
+                <Navbar.Brand href="./index.html">AI Health Trainer</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="./index.html">Home</Nav.Link>
                     <NavDropdown title="Exercise Menu" id="basic-nav-dropdown">
                         <NavDropdown.Item href="./exercise_model/lunge.html">Lunge</NavDropdown.Item>
                         <NavDropdown.Item href="./exercise_model/pushup.html">Push Up</NavDropdown.Item>
