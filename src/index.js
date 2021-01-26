@@ -6,6 +6,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Column from './column';
 import '@atlaskit/css-reset';
 import reportWebVitals from './reportWebVitals';
+import Navigation from './components/Navigation';
 // import App from './App';
 
 const Container = styled.div`
@@ -128,7 +129,13 @@ class App extends React.Component {
 }
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <Navigation />
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 // // If you want to start measuring performance in your app, pass a function
 // // to log results (for example: reportWebVitals(console.log))
