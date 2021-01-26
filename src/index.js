@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import initialData from './initial_data';
 import { DragDropContext } from 'react-beautiful-dnd';
 import Column from './column';
-import '@atlaskit/css-reset' ;
+import '@atlaskit/css-reset';
 import reportWebVitals from './reportWebVitals';
+import Navigation from './components/Navigation';
 // import App from './App';
 
 const Container = styled.div`
@@ -27,7 +28,7 @@ class App extends React.Component {
   };
 
   onDragUpdate = update => {
-    const {destination} = update;
+    const { destination } = update;
     const opacity = destination
       ? destination.index / Object.keys(this.state.exercises).length
       : 0;
@@ -43,7 +44,7 @@ class App extends React.Component {
     document.body.style.color = 'inherit';
     document.body.style.backgroundColor = 'inherit';
 
-    const {destination, source, draggableId} = result;
+    const { destination, source, draggableId } = result;
 
     if (!destination) {
       return;
@@ -63,12 +64,12 @@ class App extends React.Component {
       const newExerciseIds = Array.from(start.exerciseIds);
       newExerciseIds.splice(source.index, 1);
       newExerciseIds.splice(destination.index, 0, draggableId);
-  
+
       const newColumn = {
-        ...start, 
+        ...start,
         exerciseIds: newExerciseIds,
       };
-  
+
       const newState = {
         ...this.state,
         columns: {
@@ -76,7 +77,7 @@ class App extends React.Component {
           [newColumn.id]: newColumn,
         },
       };
-  
+
       this.setState(newState);
       return;
     }
@@ -106,29 +107,29 @@ class App extends React.Component {
     };
     this.setState(newState);
   };
-  render() {  
+  render() {
     return (
-    <DragDropContext 
-      onDragStart={this.onDragStart}
-      // onDragUpdate={this.onDragUpdate}
-      onDragEnd={this.onDragEnd}>
-    <Container>
-    {this.state.columnOrder.map((columnId, index) => {
-      const column = this.state.columns[columnId];
-      const exercises = column.exerciseIds.map(exerciseId => this.state.exercises[exerciseId]);
+      <DragDropContext
+        onDragStart={this.onDragStart}
+        // onDragUpdate={this.onDragUpdate}
+        onDragEnd={this.onDragEnd}>
+        <Container>
+          {this.state.columnOrder.map((columnId, index) => {
+            const column = this.state.columns[columnId];
+            const exercises = column.exerciseIds.map(exerciseId => this.state.exercises[exerciseId]);
 
-      // const isDropDisabled = index <this.state.homeIndex;
-      const isDropDisabled =false;
-      return <Column key={column.id} column={column} exercises={exercises} isDropDisabled={isDropDisabled} />; 
-    })}
-      </Container>
-    </DragDropContext>
+            // const isDropDisabled = index <this.state.homeIndex;
+            const isDropDisabled = false;
+            return <Column key={column.id} column={column} exercises={exercises} isDropDisabled={isDropDisabled} />;
+          })}
+        </Container>
+      </DragDropContext>
     );
   }
 }
 
 
-ReactDOM.render(<App/> , document.getElementById('root'));
+ReactDOM.render(<Navigation />, document.getElementById('root'));
 
 // // If you want to start measuring performance in your app, pass a function
 // // to log results (for example: reportWebVitals(console.log))
