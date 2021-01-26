@@ -54,7 +54,7 @@ export default class Exercise extends React.Component {
                         <button onClick={activateLasers}>
                             Activate Lasers
                     </button>
-                        <img src={this.props.exercise.thumb} width="75%" height="75%" alt="" />
+                        <img src={process.env.PUBLIC_URL + this.props.exercise.thumb} width="75%" height="75%" alt="" />
                         <strong> {this.props.exercise.name} </strong>
                     </Container>
                 )}

@@ -6,7 +6,6 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Column from './column';
 import '@atlaskit/css-reset';
 import reportWebVitals from './reportWebVitals';
-import Navigation from './components/Navigation';
 // import App from './App';
 
 const Container = styled.div`
