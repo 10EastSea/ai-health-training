@@ -155,6 +155,9 @@
             if (isNaN(totalNum)) {
                 alert('숫자가 아닙니다. 20개로 자동 설정 되었습니다.');
                 totalNum = 20;
+            } else if (totalNum == 0) {
+                alert('0개는 할 수 없습니다. 20개로 자동 설정 되었습니다.');
+                totalNum = 20;
             }
         }
 
