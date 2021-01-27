@@ -15,14 +15,6 @@ const STYLES = [
 
 const SIZES = ["btn--medium", "btn--large"];
 
-export function goLink() {
-    let codes = "<b>./exercise_model/lunge.html</b>";
-    return (
-        <div dangerouslySetInnerHTML={ {__html: codes}}>
-        </div>
-    );
-}
-
 export const Button = ({children,
     type,
     onClick,
@@ -43,9 +35,10 @@ export const Button = ({children,
         //     className = {`btn ${checkButtonStyle} ${checkButtonSize}`} 
         //     onClick = {onClick} 
         //     type={type}
-        // >  
+        //     href="./exercise_model/lunge.html"
+        // >   
         //     {children}
         // </button>
-        <a className = {`btn ${checkButtonStyle} ${checkButtonSize}`} href="./exercise_model/lunge.html">{children}</a>
+        <a className = {`btn ${checkButtonStyle} ${checkButtonSize}`} onClick = {onClick} href="ai-health-training/exercise_model/lunge.html">{children}</a>
     )
 }

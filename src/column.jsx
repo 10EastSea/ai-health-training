@@ -23,8 +23,21 @@ const ExerciseList = styled.div`
     display: flex;
 `; 
 
+const GET_TASK = "exercise";
+
 export default class Column extends React.Component {
+    // getTask = (exercise) => {
+    //     localStorage.setItem(GET_TASK, exercise);
+    //     console.log(exercise);
+    // }
+    
+    saveRoutine = () => {
+        console.log("is it called?");
+        localStorage.setItem("routine", JSON.stringify(this.props.exercises));
+    }
+
     render() {
+
         return (
             <Container>
                 <Title>{this.props.column.title}</Title>

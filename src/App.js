@@ -4,6 +4,7 @@ import initialData from './initial_data';
 import { DragDropContext } from 'react-beautiful-dnd';
 import '@atlaskit/css-reset';
 import Column from './column';
+import {Button, goLink} from "./components/Button";
 
 
 const Container = styled.div`
@@ -12,6 +13,12 @@ const Container = styled.div`
 `;
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.child = React.createRef();
+  }
+
   state = initialData;
 
   onDragStart = start => {
@@ -105,9 +112,14 @@ class App extends Component {
     this.setState(newState);
   };
 
+  onClickLetsGo = () => {
+    console.log("is onClickLetsgo called?");
+    this.child.current.saveRoutine();
+  }
 
   render() {
     return (
+      <>
       <DragDropContext
         onDragStart={this.onDragStart}
         // onDragUpdate={this.onDragUpdate}
@@ -119,10 +131,19 @@ class App extends Component {
 
             // const isDropDisabled = index <this.state.homeIndex;
             const isDropDisabled = false;
-            return <Column key={column.id} column={column} exercises={exercises} isDropDisabled={isDropDisabled} />;
+            return <Column ref={this.child} key={column.id} column={column} exercises={exercises} isDropDisabled={isDropDisabled} />;
           })}
         </Container>
       </DragDropContext>
+      <Button
+        onClick={this.onClickLetsGo}
+        type="button"
+        buttonStyle="btn--primary--outline"
+        buttonSize="btn--large"
+      >
+        LET'S GO!!
+      </Button>
+      </>
     );
   }
 }
