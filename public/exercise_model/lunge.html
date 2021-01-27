@@ -149,6 +149,7 @@
     <script type="text/javascript">
 
         var totalNum = 20;
+        var subNum = 327 / totalNum;
         window.onload = function () {
             var inputNum = prompt("목표 갯수를 입력해주세요.(숫자만 입력하세요)", 20);
             totalNum = Number(inputNum);
@@ -159,6 +160,7 @@
                 alert('0개는 할 수 없습니다. 20개로 자동 설정 되었습니다.');
                 totalNum = 20;
             }
+            subNum = 327 / totalNum
         }
 
         // More API functions here:
@@ -205,7 +207,6 @@
 
         ///////////////////////////////////////////////////////////////////////////////////////
         var progress = 327
-        var subNum = 327 / totalNum
         var status = "null"
         var count = 0
 
