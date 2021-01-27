@@ -39,6 +39,6 @@ export const Button = ({children,
         // >   
         //     {children}
         // </button>
-        <a className = {`btn ${checkButtonStyle} ${checkButtonSize}`} onClick = {onClick} href="ai-health-training/exercise_model/lunge.html">{children}</a>
+        <a className = {`btn ${checkButtonStyle} ${checkButtonSize}`} onClick = {onClick} href="./exercise_model/lunge.html">{children}</a>
     )
 }
