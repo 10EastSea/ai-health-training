@@ -211,11 +211,6 @@
             // Prediction 2: run input through teachable machine classification model
             const prediction = await model.predict(posenetOutput);
 
-            if (count == totalNum) {
-                alert('축하합니다! 런지 운동이 끝났습니다.');
-                window.history.back();
-            }
-
 
 
             if (startBtn == 1) {
@@ -228,6 +223,12 @@
                         }
                         $('.progress').css('stroke-dashoffset', progress);
                         $('#counter').html(count);
+                        if (count == totalNum) {
+                            setTimeout(function () {
+                                alert('축하합니다! 런지 운동이 끝났습니다.');
+                                window.history.back();
+                            }, 500);
+                        }
                     }
                     status = "stand"
                 } else if (prediction[1].probability.toFixed(2) == 1.00) {
