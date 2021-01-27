@@ -205,6 +205,7 @@
 
         ///////////////////////////////////////////////////////////////////////////////////////
         var progress = 327
+        var subNum = 327 / totalNum
         var status = "null"
         var count = 0
 
@@ -230,9 +231,9 @@
                 if (prediction[0].probability.toFixed(2) > 0.95) {
                     if (status == "lunge") {
                         count++
-                        progress = progress - 32.7
+                        progress = progress - subNum
                         if (progress <= 0) {
-                            progress = 327 - 32.7
+                            progress = 327 - subNum
                         }
                         $('.progress').css('stroke-dashoffset', progress);
                         $('#counter').html(count);
