@@ -148,10 +148,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
     <script type="text/javascript">
 
-        var totalNum = 30;
+        var totalNum = 20;
         window.onload = function () {
-            var inputNum = prompt("목표 갯수를 입력해주세요.(숫자만 입력하세요)", 30);
+            var inputNum = prompt("목표 갯수를 입력해주세요.(숫자만 입력하세요)", 20);
             totalNum = Number(inputNum);
+            if (isNaN(totalNum)) {
+                alert('숫자가 아닙니다. 20개로 자동 설정 되었습니다.');
+                totalNum = 20;
+            }
         }
 
         // More API functions here:
