@@ -80,9 +80,9 @@
                     <div class="col-md-2"></div>
                 </div>
                 <button id="camera_on" type="button" class="btn btn-info"
-                    style="margin:10px; width:200px; display: block;" onclick="init()">Camera On</button>
-                <button id="start" type="button" class="btn btn-info" style="margin:10px; width:200px; display: none;"
-                    onclick="startExercise()">Start</button>
+                    style="margin:10px; width:200px; display: inline;" onclick="init()">Camera On</button>
+                <button id="start" type="button" class="btn btn-success"
+                    style="margin:10px; width:200px; display: none;" onclick="startExercise()">Start</button>
                 <div><canvas id="canvas"></canvas></div>
                 <div id="label-container">
                     <table style="margin:auto;text-align:center;">
@@ -178,7 +178,7 @@
             ctx = canvas.getContext("2d");
 
             $('#camera_on').css('display', 'none');
-            $('#start').css('display', 'block');
+            $('#start').css('display', 'inline');
         }
 
         async function loop(timestamp) {
