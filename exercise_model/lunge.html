@@ -79,8 +79,10 @@
                     </div>
                     <div class="col-md-2"></div>
                 </div>
-                <button type="button" class="btn btn-info" style="margin:10px; width:200px;"
-                    onclick="init()">Start</button>
+                <button id="camera_on" type="button" class="btn btn-info"
+                    style="margin:10px; width:200px; display: block;" onclick="init()">Camera On</button>
+                <button id="start" type="button" class="btn btn-info" style="margin:10px; width:200px; display: none;"
+                    onclick="startExercise()">Start</button>
                 <div><canvas id="canvas"></canvas></div>
                 <div id="label-container">
                     <table style="margin:auto;text-align:center;">
@@ -174,6 +176,9 @@
             const canvas = document.getElementById("canvas");
             canvas.width = size; canvas.height = size;
             ctx = canvas.getContext("2d");
+
+            $('#camera_on').css('display', 'none');
+            $('#start').css('display', 'block');
         }
 
         async function loop(timestamp) {
@@ -188,6 +193,9 @@
         var progress = 327
         var status = "null"
         var count = 0
+
+        var startBtn = 0
+        function startExercise() { startBtn = 1; }
         ///////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -201,21 +209,23 @@
 
 
 
-            if (prediction[0].probability.toFixed(2) > 0.95) {
-                if (status == "lunge") {
-                    count++
-                    progress = progress - 32.7
-                    if (progress <= 0) {
-                        progress = 327 - 32.7
+            if (startBtn == 1) {
+                if (prediction[0].probability.toFixed(2) > 0.95) {
+                    if (status == "lunge") {
+                        count++
+                        progress = progress - 32.7
+                        if (progress <= 0) {
+                            progress = 327 - 32.7
+                        }
+                        $('.progress').css('stroke-dashoffset', progress);
+                        $('#counter').html(count);
                     }
-                    $('.progress').css('stroke-dashoffset', progress);
-                    $('#counter').html(count);
+                    status = "stand"
+                } else if (prediction[1].probability.toFixed(2) == 1.00) {
+                    status = "lunge"
+                } else if (prediction[2].probability.toFixed(2) == 1.00) {
+                    status = "notLunge"
                 }
-                status = "stand"
-            } else if (prediction[1].probability.toFixed(2) == 1.00) {
-                status = "lunge"
-            } else if (prediction[2].probability.toFixed(2) == 1.00) {
-                status = "notLunge"
             }
 
 
