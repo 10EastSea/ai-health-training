@@ -193,6 +193,7 @@
         var progress = 327
         var status = "null"
         var count = 0
+        var totalNum = 10
 
         var startBtn = 0
         function startExercise() {
@@ -222,6 +223,10 @@
                         }
                         $('.progress').css('stroke-dashoffset', progress);
                         $('#counter').html(count);
+                        if (count == totalNum) {
+                            alert('축하합니다! 런지 운동이 끝났습니다.');
+                            window.history.back();
+                        }
                     }
                     status = "stand"
                 } else if (prediction[1].probability.toFixed(2) == 1.00) {
