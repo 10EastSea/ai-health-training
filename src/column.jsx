@@ -32,8 +32,12 @@ export default class Column extends React.Component {
     // }
     
     saveRoutine = () => {
+        var tmp = ""
+        for (const [index, value] of this.props.exercises.entries()){
+        tmp += value.name +","
+        }
         console.log("is it called?");
-        localStorage.setItem("routine", JSON.stringify(this.props.exercises));
+        localStorage.setItem("routine", tmp);
     }
 
     render() {
