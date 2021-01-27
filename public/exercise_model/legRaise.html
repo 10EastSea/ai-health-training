@@ -70,17 +70,19 @@
             <div class="col-md-1"></div>
             <div class="col-md-5" style="text-align: center;">
                 <div class="row">
-                    <div class="col-md-2"></div>
+                    <div class="col-md-3"></div>
                     <div class="col-md-4">
                         <h1>Leg Raise</h1>
                     </div>
                     <div class="col-md-4">
                         <img src="../images/leg_raise_icon.png" height="100" alt="legRaise">
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-1"></div>
                 </div>
-                <button type="button" class="btn btn-info" style="margin:10px; width:200px;"
-                    onclick="init()">Start</button>
+                <button id="camera_on" type="button" class="btn btn-info"
+                    style="margin:10px; width:200px; display: inline;" onclick="init()">Camera On</button>
+                <button id="start" type="button" class="btn btn-success"
+                    style="margin:10px; width:200px; display: none;" onclick="startExercise()">Start</button>
                 <div><canvas id="canvas"></canvas></div>
                 <div id="label-container">
                     <table style="margin:auto;text-align:center;">
@@ -107,7 +109,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col-md-5" style="margin-top:200px;">
+            <div class="col-md-5" style="margin-top:150px;">
                 <div class="frame">
                     <div class="center">
                         <div class="headline">
@@ -162,10 +164,9 @@
             const canvas = document.getElementById("canvas");
             canvas.width = size; canvas.height = size;
             ctx = canvas.getContext("2d");
-            labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < maxPredictions; i++) { // and class labels
-                labelContainer.appendChild(document.createElement("div"));
-            }
+
+            $('#camera_on').css('display', 'none');
+            $('#start').css('display', 'inline');
         }
 
         async function loop(timestamp) {
@@ -180,6 +181,12 @@
         var progress = 327
         var status = "null"
         var count = 0
+
+        var startBtn = 0
+        function startExercise() {
+            startBtn = 1;
+            $('#start').css('display', 'none');
+        }
         ///////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -193,19 +200,21 @@
 
 
 
-            if (prediction[0].probability.toFixed(2) > 0.95) {
-                if (status == "legRaise") {
-                    count++
-                    progress = progress - 32.7
-                    if (progress <= 0) {
-                        progress = 327 - 32.7
+            if (startBtn == 1) {
+                if (prediction[0].probability.toFixed(2) > 0.95) {
+                    if (status == "legRaise") {
+                        count++
+                        progress = progress - 32.7
+                        if (progress <= 0) {
+                            progress = 327 - 32.7
+                        }
+                        $('.progress').css('stroke-dashoffset', progress);
+                        $('#counter').html(count);
                     }
-                    $('.progress').css('stroke-dashoffset', progress);
-                    $('#counter').html(count);
+                    status = "ready"
+                } else if (prediction[1].probability.toFixed(2) == 1.00) {
+                    status = "legRaise"
                 }
-                status = "ready"
-            } else if (prediction[1].probability.toFixed(2) == 1.00) {
-                status = "legRaise"
             }
 
 
