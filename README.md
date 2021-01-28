@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+AI Health Trainer
+============
+https://10eastsea.github.io/ai-health-training/
+<img src="/readme/2-0.png" title="메인 화면" alt="MainScreen"></img>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1 서비스 소개
+----------
+운동을 하고 싶지만 집밖으로 나가기 싫은 당신!
+COVID-19 으로 인해 헬스장을 마음대로 가지 못하는 당신!
+운동을 제대로 피팅받고 싶지만 그러기엔 귀찮은 당신!
+그런 당신을 위해, AI Health Trainer는 당신의 운동을 도와드립니다.👍
 
-## Available Scripts
+2 사용법
+------
+### 2.1 드래그 & 드롭
+하고자 하는 운동을 드래그 & 드롭 하여 Today's Workout 에 옮깁니다.
+그리고 LET'S GO!! 버튼을 누르면 운동을 시작합니다.
+<img src="/readme/2-1.png" title="드래그 & 드롭" alt="사용법1"></img>
 
-In the project directory, you can run:
+### 2.2 운동 시작
+시작 화면에서 하고자 하는 운동 갯수를 입력합니다.
+그리고 Camera On을 통해 웹캠을 킨 다음 Start를 눌러 운동을 시작합니다.
+<img src="/readme/2-2.png" title="갯수 입력" alt="사용법2"></img>
+<img src="/readme/2-3.png" title="운동 시작" alt="사용법3"></img>
 
-### `npm start`
+### 2.3 다음 운동
+현재 운동이 끝나면 자동적으로 다음 운동으로 이동합니다. 
+<img src="/readme/2-4.png" title="다음 운동" alt="사용법3"></img>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 2.3 운동 종료
+정해진 갯수가 모두 카운트 되면 종료 메시지와 함께 운동이 종료 됩니다.
+<img src="/readme/2-5.png" title="결과" alt="사용법3"></img>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3 사이트 설명
+------------
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. 각각의 운동들은 그에 맞는 인공지능 모델이 운동자세를 분석해줍니다. 
+2. 모든 인공지능 모델은 수 백장의 운동 자세 사진 데이터 셋을 학습시킨 모델입니다. (Teachable Machine 이용)
+3. 드래그 & 드롭 기능 및 홈페이지는 모두 React를 이용하여 구현했습니다.
