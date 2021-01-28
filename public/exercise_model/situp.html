@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <title>Document</title>
+    <title>Sit Up</title>
     <style>
         #content {
             font-family: 'Roboto Mono', monospace;
@@ -138,8 +138,13 @@
 
         var totalNum = 20;
         var subNum = 327 / totalNum;
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var exerciseStr;
+        var exerciseList;
+        var nextExercise = "";
+        ///////////////////////////////////////////////////////////////////////////////////////
         window.onload = function () {
-            var inputNum = prompt("목표 갯수를 입력해주세요.(숫자만 입력하세요)", 20);
+            var inputNum = prompt("[현재운동: 싯업]\n목표 갯수를 입력해주세요.(숫자만 입력하세요)", 20);
             totalNum = Number(inputNum);
             if (isNaN(totalNum)) {
                 alert('숫자가 아닙니다. 20개로 자동 설정 되었습니다.');
@@ -149,6 +154,11 @@
                 totalNum = 20;
             }
             subNum = 327 / totalNum
+            ///////////////////////////////////////////////////////////////////////////////////////
+            exerciseStr = localStorage.getItem('routine');
+            exerciseList = exerciseStr.split(',');
+            nextExercise = exerciseList[0];
+            ///////////////////////////////////////////////////////////////////////////////////////
         }
 
         // More API functions here:
@@ -228,8 +238,41 @@
                         $('#counter').html(count);
                         if (count == totalNum) {
                             setTimeout(function () {
-                                alert('축하합니다! 싯업 운동이 끝났습니다.');
-                                window.history.back();
+                                ///////////////////////////////////////////////////////////////////////////////////////
+                                if (nextExercise == "") { // 다음 운동이 없을 때
+                                    // index.html 호출
+                                    alert('축하합니다! 싯업 운동이 끝났습니다.\n오늘의 모든 운동이 끝났습니다. 수고하셨습니다!👍');
+                                    window.location.replace('../index.html');
+                                } else { // 다음 운동이 있을 때 -> 그 운동 html 호출
+                                    var tmpExerciseStr = exerciseStr.substring(exerciseStr.indexOf(',') + 1);
+                                    if (tmpExerciseStr == exerciseStr) { // 이게 마지막 운동일 때
+                                        localStorage.setItem('routine', "");
+                                    } else { // 이게 마지막 운동이 아닐 때
+                                        exerciseStr = tmpExerciseStr;
+                                        localStorage.setItem('routine', exerciseStr);
+                                    }
+
+                                    if (nextExercise == "lunge") {
+                                        alert('축하합니다! 싯업 운동이 끝났습니다.\n다음 운동은 런지 입니다.');
+                                        window.location.replace('./lunge.html');
+                                    } else if (nextExercise == "pushup") {
+                                        alert('축하합니다! 싯업 운동이 끝났습니다.\n다음 운동은 푸시업 입니다.');
+                                        window.location.replace('./pushup.html');
+                                    } else if (nextExercise == "shoulderPress") {
+                                        alert('축하합니다! 싯업 운동이 끝났습니다.\n다음 운동은 숄더프레스 입니다.');
+                                        window.location.replace('./shoulderPress.html');
+                                    } else if (nextExercise == "situp") {
+                                        alert('축하합니다! 싯업 운동이 끝났습니다.\n다음 운동은 싯업 입니다.');
+                                        window.location.replace('./situp.html');
+                                    } else if (nextExercise == "squat") {
+                                        alert('축하합니다! 싯업 운동이 끝났습니다.\n다음 운동은 스쿼트 입니다.');
+                                        window.location.replace('./squat.html');
+                                    } else if (nextExercise == "legRaise") {
+                                        alert('축하합니다! 싯업 운동이 끝났습니다.\n다음 운동은 레그레이즈 입니다.');
+                                        window.location.replace('./legRaise.html');
+                                    }
+                                }
+                                ///////////////////////////////////////////////////////////////////////////////////////
                             }, 100);
                         }
                     }
