@@ -14,31 +14,37 @@ const STYLES = [
 ]
 
 const SIZES = ["btn--medium", "btn--large"];
+const EXERCISES = ["lunge", "pushup", "shoulderPress", "situp", "squat", "legRaise"]
 
 export const Button = ({children,
     type,
     onClick,
     buttonStyle,
     buttonSize
+    // first
 }) => {
 
     const checkButtonStyle = STYLES.includes(buttonStyle) 
         ? buttonStyle 
         : STYLES[0];
 
-        const checkButtonSize = SIZES.includes(buttonSize) 
-        ? buttonSize 
-        : SIZES[0];
+    const checkButtonSize = SIZES.includes(buttonSize) 
+    ? buttonSize 
+    : SIZES[0];
+
+    // const first = EXERCISES.includes(first)
+    // ? first
+    // : EXERCISES[0];
 
     return (
-        // <button 
-        //     className = {`btn ${checkButtonStyle} ${checkButtonSize}`} 
-        //     onClick = {onClick} 
-        //     type={type}
-        //     href="./exercise_model/lunge.html"
-        // >   
-        //     {children}
-        // </button>
-        <a className = {`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} href="./exercise_model/lunge.html">{children}</a>
+        <button 
+            className = {`btn ${checkButtonStyle} ${checkButtonSize}`} 
+            onClick = {onClick} 
+            type={type}
+            // href="./exercise_model/lunge.html"
+        >   
+            {children}
+        </button>
+        // <a className = {`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} first={first} href="">{children}</a>
     )
 }

@@ -34,8 +34,10 @@ export default class Column extends React.Component {
     saveRoutine = () => {
         var tmp = ""
         for (const [index, value] of this.props.exercises.entries()){
-            if (index == 0)
+            if (index == 0) {
+                localStorage.setItem("first", value.id);
                 continue;
+            }
             tmp += value.id +","
         }
         tmp = tmp.slice(0,-1);

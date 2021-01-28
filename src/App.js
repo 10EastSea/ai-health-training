@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import initialData from './initial_data';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { Link } from 'react-router-dom'
 import '@atlaskit/css-reset';
 import Column from './column';
 import {Button, goLink} from "./components/Button";
@@ -11,12 +12,16 @@ const Container = styled.div`
   display:flex;
   flex-direction:column;
 `;
+// const history = useHistory();
+
+var link = "";
 
 class App extends Component {
 
   constructor(props){
     super(props);
     this.child = React.createRef();
+    this.first = "";
   }
 
   state = initialData;
@@ -112,9 +117,27 @@ class App extends Component {
     this.setState(newState);
   };
 
+  // routeChange=()=> {
+  //   let path = localStorage.getItem("first");
+  //   let history = useHistory();
+  //   history.push(path);
+  // }
+
   onClickLetsGo = () => {
     console.log("is onClickLetsgo called?");
+    
     this.child.current.saveRoutine();
+    this.first= localStorage.getItem("first");
+    // window.location.href='http://google.com';
+    link = "./exercise_model/"+this.first.toString() + ".html";
+    console.log(this.first);
+    console.log(link);
+    window.location.href=link;
+    // const routeChange = () => {
+    //   let path = localStorage.getItem("first");
+    //   history.push(path);
+    // }
+    // this.routeChange();
     // var firstItem = this.child.current.firstItem();
     // while (isSaved ==false) {
     //   console.log("busy wait");
@@ -125,6 +148,9 @@ class App extends Component {
   }
 
   render() {
+    // this.props.first= localStorage.getItem("first");
+    // link = "./exercise_model/"+ localStorage.getItem("first") + ".html";
+
     return (
       <>
       <DragDropContext
@@ -142,11 +168,17 @@ class App extends Component {
           })}
         </Container>
       </DragDropContext>
+      
       <Button
-        onClick={this.onClickLetsGo}
+        // onClick={this.onClickLetsGo}
+        // onClick={this.onClickLetsGo}
+
+        onClick={() => this.onClickLetsGo()}
+        // "location.href='./exercise_model/"+localStorage.getItem("first")+".html'"
         type="button"
         buttonStyle="btn--primary--outline"
         buttonSize="btn--large"
+
       >
         LET'S GO!!
       </Button>
