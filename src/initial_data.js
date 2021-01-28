@@ -32,13 +32,33 @@ const initialData = {
             name: 'shoulder press',
             thumb: '/images/shoulder_press_icon.png'
         },
+        'mountain_climber': {
+            id: 'mountain_climber',
+            name: 'mountain climber',
+            thumb: '/images/mountain_climber_icon.png'
+            
+        },
+
+        'plank': {
+            id: 'plank',
+            name: 'plank',
+            thumb: '/images/plank_icon.png'
+
+        },
+
+        'dips': {
+            id: 'dips',
+            name: 'dips',
+            thumb: '/images/dips_icon.png'
+        }
+
     },
 
     columns: {
         'column-1': {
             id: 'column-1',
             title: "All Exercises",
-            exerciseIds: ['situp', 'pushup', 'lunge', 'squat', 'legRaise', 'shoulderPress'],
+            exerciseIds: ['situp', 'pushup', 'lunge', 'squat', 'legRaise', 'shoulderPress', 'mountain_climber', 'plank', 'dips'],
         },
 
         'column-2': {
