@@ -15,6 +15,7 @@
     position: relative;
     left: 50%;
     margin-left: -79px;
+    margin-top: 20px;
     transition: transform 0.3s ease; 
 }
 

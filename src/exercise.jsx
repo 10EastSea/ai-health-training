@@ -30,8 +30,8 @@ const Container = styled.div`
 
 
 export default class Exercise extends React.Component {
-    
-   
+
+
     render() {
         // const isDragDisabled = this.props.exercise.id === 'sit_up';
         const isDragDisabled = false;
