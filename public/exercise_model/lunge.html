@@ -150,6 +150,11 @@
 
         var totalNum = 20;
         var subNum = 327 / totalNum;
+        ///////////////////////////////////////////////////////////////////////////////////////
+        var exerciseStr;
+        var exerciseList;
+        var nextExercise = "";
+        ///////////////////////////////////////////////////////////////////////////////////////
         window.onload = function () {
             var inputNum = prompt("목표 갯수를 입력해주세요.(숫자만 입력하세요)", 20);
             totalNum = Number(inputNum);
@@ -161,6 +166,11 @@
                 totalNum = 20;
             }
             subNum = 327 / totalNum
+            ///////////////////////////////////////////////////////////////////////////////////////
+            exerciseStr = localStorage.getItem('routine');
+            exerciseList = exerciseStr.split(',');
+            nextExercise = exerciseList[0];
+            ///////////////////////////////////////////////////////////////////////////////////////
         }
 
         // More API functions here:
@@ -241,7 +251,28 @@
                         if (count == totalNum) {
                             setTimeout(function () {
                                 alert('축하합니다! 런지 운동이 끝났습니다.');
-                                window.history.back();
+
+                                ///////////////////////////////////////////////////////////////////////////////////////
+                                if (nextExercise == "") { // 다음 운동이 없을 때
+                                    // index.html 호출
+                                    window.location.replace('../index.html');
+                                } else { // 다음 운동이 있을 때 -> 그 운동 html 호출
+                                    var tmpExerciseStr = exerciseStr.substring(exerciseStr.indexOf(',') + 1);
+                                    if (tmpExerciseStr == exerciseStr) { // 이게 마지막 운동일 때
+                                        localStorage.setItem('routine', "");
+                                    } else { // 이게 마지막 운동이 아닐 때
+                                        exerciseStr = tmpExerciseStr;
+                                        localStorage.setItem('routine', exerciseStr);
+                                    }
+
+                                    if (nextExercise == "lunge") window.location.replace('./lunge.html');
+                                    else if (nextExercise == "pushup") window.location.replace('./pushup.html');
+                                    else if (nextExercise == "shoulderPress") window.location.replace('./shoulderPress.html');
+                                    else if (nextExercise == "situp") window.location.replace('./situp.html');
+                                    else if (nextExercise == "squat") window.location.replace('./squat.html');
+                                    else if (nextExercise == "legRaise") window.location.replace('./legRaise.html');
+                                }
+                                ///////////////////////////////////////////////////////////////////////////////////////
                             }, 100);
                         }
                     }
