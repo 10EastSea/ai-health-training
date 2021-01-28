@@ -115,11 +115,13 @@ class App extends Component {
   onClickLetsGo = () => {
     console.log("is onClickLetsgo called?");
     this.child.current.saveRoutine();
+    // var firstItem = this.child.current.firstItem();
     // while (isSaved ==false) {
     //   console.log("busy wait");
     // }
     // var list = JSON.parse(localStorage.getItem('routine'));
     // list.
+
   }
 
   render() {

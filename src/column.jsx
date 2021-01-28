@@ -1,3 +1,4 @@
+  
 import React from 'react';
 import styled from 'styled-components';
 import {Droppable} from 'react-beautiful-dnd';
@@ -7,7 +8,6 @@ const Container =styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
     border-radius: 2px;
-
     display: flex;
     flex-direction:column;
     `;
@@ -34,7 +34,9 @@ export default class Column extends React.Component {
     saveRoutine = () => {
         var tmp = ""
         for (const [index, value] of this.props.exercises.entries()){
-            tmp += value.name +","
+            if (index == 0)
+                continue;
+            tmp += value.id +","
         }
         tmp = tmp.slice(0,-1);
         console.log("is it called?");

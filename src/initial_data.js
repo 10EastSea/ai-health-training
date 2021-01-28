@@ -1,12 +1,12 @@
 const initialData = {
     exercises: {
-        'sit_up': {
-            id: 'sit_up',
+        'situp': {
+            id: 'situp',
             name: 'sit up',
             thumb: '/images/sit_up_icon.png'
         },
-        'push_up': {
-            id: 'push_up',
+        'pushup': {
+            id: 'pushup',
             name: 'push up',
             thumb: '/images/push_up_icon.png'
         },
@@ -21,14 +21,14 @@ const initialData = {
             thumb: '/images/squat_icon.png'
         },
 
-        'leg_raise': {
-            id: 'leg_raise',
+        'legRaise': {
+            id: 'legRaise',
             name: 'leg raise',
             thumb: '/images/leg_raise_icon.png'
         },
 
-        'shoulder_press': {
-            id: 'shoulder_press',
+        'shoulderPress': {
+            id: 'shoulderPress',
             name: 'shoulder press',
             thumb: '/images/shoulder_press_icon.png'
         },
@@ -38,7 +38,7 @@ const initialData = {
         'column-1': {
             id: 'column-1',
             title: "All Exercises",
-            exerciseIds: ['sit_up', 'push_up', 'lunge', 'squat', 'leg_raise', 'shoulder_press'],
+            exerciseIds: ['situp', 'pushup', 'lunge', 'squat', 'legRaise', 'shoulderPress'],
         },
 
         'column-2': {
