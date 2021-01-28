@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ai-health-training/static/css/main.7609f124.chunk.css",
-    "main.js": "/ai-health-training/static/js/main.6f727c3e.chunk.js",
-    "main.js.map": "/ai-health-training/static/js/main.6f727c3e.chunk.js.map",
+    "main.js": "/ai-health-training/static/js/main.bccc7a0a.chunk.js",
+    "main.js.map": "/ai-health-training/static/js/main.bccc7a0a.chunk.js.map",
     "runtime-main.js": "/ai-health-training/static/js/runtime-main.04dd7a85.js",
     "runtime-main.js.map": "/ai-health-training/static/js/runtime-main.04dd7a85.js.map",
     "static/css/2.019d1a6f.chunk.css": "/ai-health-training/static/css/2.019d1a6f.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.019d1a6f.chunk.css",
     "static/js/2.8cbe803e.chunk.js",
     "static/css/main.7609f124.chunk.css",
-    "static/js/main.6f727c3e.chunk.js"
+    "static/js/main.bccc7a0a.chunk.js"
   ]
 }
