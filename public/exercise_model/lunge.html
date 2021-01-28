@@ -250,11 +250,10 @@
                         $('#counter').html(count);
                         if (count == totalNum) {
                             setTimeout(function () {
-                                alert('축하합니다! 런지 운동이 끝났습니다.');
-
                                 ///////////////////////////////////////////////////////////////////////////////////////
                                 if (nextExercise == "") { // 다음 운동이 없을 때
                                     // index.html 호출
+                                    alert('축하합니다! 런지 운동이 끝났습니다.\n오늘의 모든 운동이 끝났습니다. 수고하셨습니다!👍');
                                     window.location.replace('../index.html');
                                 } else { // 다음 운동이 있을 때 -> 그 운동 html 호출
                                     var tmpExerciseStr = exerciseStr.substring(exerciseStr.indexOf(',') + 1);
@@ -265,12 +264,25 @@
                                         localStorage.setItem('routine', exerciseStr);
                                     }
 
-                                    if (nextExercise == "lunge") window.location.replace('./lunge.html');
-                                    else if (nextExercise == "pushup") window.location.replace('./pushup.html');
-                                    else if (nextExercise == "shoulderPress") window.location.replace('./shoulderPress.html');
-                                    else if (nextExercise == "situp") window.location.replace('./situp.html');
-                                    else if (nextExercise == "squat") window.location.replace('./squat.html');
-                                    else if (nextExercise == "legRaise") window.location.replace('./legRaise.html');
+                                    if (nextExercise == "lunge") {
+                                        alert('축하합니다! 런지 운동이 끝났습니다.\n다음 운동은 런지 입니다.');
+                                        window.location.replace('./lunge.html');
+                                    } else if (nextExercise == "pushup") {
+                                        alert('축하합니다! 런지 운동이 끝났습니다.\n다음 운동은 푸시업 입니다.');
+                                        window.location.replace('./pushup.html');
+                                    } else if (nextExercise == "shoulderPress") {
+                                        alert('축하합니다! 런지 운동이 끝났습니다.\n다음 운동은 숄더프레스 입니다.');
+                                        window.location.replace('./shoulderPress.html');
+                                    } else if (nextExercise == "situp") {
+                                        alert('축하합니다! 런지 운동이 끝났습니다.\n다음 운동은 싯업 입니다.');
+                                        window.location.replace('./situp.html');
+                                    } else if (nextExercise == "squat") {
+                                        alert('축하합니다! 런지 운동이 끝났습니다.\n다음 운동은 스쿼트 입니다.');
+                                        window.location.replace('./squat.html');
+                                    } else if (nextExercise == "legRaise") {
+                                        alert('축하합니다! 런지 운동이 끝났습니다.\n다음 운동은 레그레이즈 입니다.');
+                                        window.location.replace('./legRaise.html');
+                                    }
                                 }
                                 ///////////////////////////////////////////////////////////////////////////////////////
                             }, 100);
