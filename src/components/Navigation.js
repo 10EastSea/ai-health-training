@@ -16,6 +16,9 @@ function Navigation() {
                         <NavDropdown.Item href="./exercise_model/situp.html">Sit Up</NavDropdown.Item>
                         <NavDropdown.Item href="./exercise_model/shoulderPress.html">Shoulder Press</NavDropdown.Item>
                         <NavDropdown.Item href="./exercise_model/legRaise.html">Leg Raise</NavDropdown.Item>
+                        <NavDropdown.Item href="./exercise_model//mountain_climber.html">Mountain Climber</NavDropdown.Item>
+                        <NavDropdown.Item href="./exercise_model/plank.html">Plank</NavDropdown.Item>
+                        <NavDropdown.Item href="./exercise_model/dips.html">Dips</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
             </Navbar>
